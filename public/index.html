@@ -37,27 +37,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.js" integrity="sha512-rwu37NnL8piEGiFhe2c5j4GahN+gFsIn9k/0hkRY44iz0pc81tBNaUN56qF8X4fy+5pgAAgYi2C9FXdetne5sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
       
-       const socket =  io('https://localhost:8080'); 
-       //REf del dom
-        const formulario = document.querySelector('#miFormulario');
-        const mensajes   = document.querySelector('#misMensajes');
-        const txtMensaje = document.querySelector('#txtMensaje');
+       const socket =  io('http://localhost:3000'); 
+   // obtener las bandashttp://localhost:3000/ 
 
-        formulario.addEventListener( 'submit' , (ev)=>{
-            ev.preventDefault();
-            const nuevoMensaje = txtMensaje.value;
-     
-            socket.emit('mensaje-to-server',{
-                texto:nuevoMensaje
-            })
-        });
-
-        socket.on('mensaje-from-server', (data)=>{
-            mensajes.innerHTML += `<li>${ data.texto }</li>`
-        })
-    //    socket.on('mensaje-from-server', ( data )=>{
-    //     console.log(data)
-    //    });
+       socket.on('current-bands', ( d )=>{
+        console.log(d)
+       });
 
       
     </script>
