@@ -21,7 +21,12 @@ this.bands = [
     }
 
     removeBand( id ){
-        this.bands.filter( band => band.id !== id );
+
+        const data = this.bands.filter( band => band.id !== id );
+
+        this.bands = data
+ 
+          
     }
     getBands(){
         return this.bands;
